@@ -1,0 +1,39 @@
+ let dataBody = req.body ;
+    let data = new riceInMachine() ;
+    data.idMachine = dataBody.idMachine ;
+    data.idRiceType = dataBody.idRiceType ;
+    data.volume = dataBody.volume ;
+    data.dateCreate = moment(new Date()).format('YYYY-MM-DD H:mm:ss');
+    let checkParameter = await functionForData.funCheckParameterWithOutId(data) ;
+    
+    if(checkParameter != "" )
+    {
+        //console.log(checkParameter)       
+        resData.status = "error";
+        resData.statusCode = 200 ;
+        resData.data = "not have parameter ( "+ checkParameter +" )";    
+        res.status(resData.statusCode).json(resData);
+    }
+    else
+    {
+        sql = ``;
+
+        pool.query(
+            sql, 
+            (err, result) => {
+                //console.log(err)
+                if (err) {
+                    resData.status = "error";
+                    resData.data = "query command error tb_machine_rice : " + err;
+                    res.status(200).json(resData);
+                }
+                else
+                {      
+                    resData.status = "success";
+                    resData.statusCode = 201 ;
+                    resData.data = "insert complete";
+                    res.status(201).json(resData);
+                }
+            }
+        );
+    }
