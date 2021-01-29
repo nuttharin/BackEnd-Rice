@@ -11,7 +11,12 @@ class BankDriver {
 
 
 class riceType {
-    constructor(){}
+    constructor(id , name_type , dateModify){
+        this.id = id;
+        this.name_type = name_type;
+        this.dateModify = (!dateModify)?" ":dateModify ;
+
+    }
 }
 
 
@@ -35,6 +40,7 @@ class riceInMachineEdit {
 }
 
 module.exports = {
+    riceType,
     riceInMachine,
     riceInMachineEdit
 }

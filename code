@@ -37,3 +37,28 @@
             }
         );
     }
+
+
+
+
+
+    sql = ``;
+
+    pool.query(
+        sql, 
+        (err, result) => {
+            //console.log(err)
+            if (err) {
+                resData.status = "error";
+                resData.data = "query command error tb_machine_rice : " + err;
+                res.status(200).json(resData);
+            }
+            else
+            {      
+                resData.status = "success";
+                resData.statusCode = 201 ;
+                resData.data = "insert complete";
+                res.status(201).json(resData);
+            }
+        }
+    );

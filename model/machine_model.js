@@ -10,13 +10,27 @@ class BankDriver {
 }
 
 class machine {
-  constructor(id){
-
+  constructor(id , id_owner , id_subdistrict , machine_code , dateCreate , dateModify)
+  {
+    console.log(id_subdistrict)
+    this.id = id ;
+    this.id_owner = id_owner ;
+    this.id_subdistrict = id_subdistrict ;
+    this.machine_code = machine_code ;
+    this.dateCreate = (!dateCreate)?" ":dateCreate ;
+    this.dateModify = (!dateModify)?" ":dateModify ;
   }
 }
+
+
+
 
 // class  {
 //   constructor(id){
 
 //   }
 // }
+
+module.exports = {
+  machine
+}

@@ -48,5 +48,6 @@ const machineRoute = require('./routes/machine_route');
 //app.use('/machine',machineRoute);
 app.use('/user',userRoute);
 app.use('/rice',riceRoute);
+app.use('/machine',machineRoute);
 
 module.exports = app ;
